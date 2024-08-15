@@ -9,5 +9,6 @@ years=n/365;
 weeks=(n%365)/7;
 days=(n%365)%7;
 std::cout<<"\n"<<years<<" years "<<weeks<<" weeks "<<days<<" days\n"; 
+return 0;
 }
 
