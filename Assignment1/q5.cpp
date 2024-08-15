@@ -11,5 +11,6 @@ int main()
   round=int((n1*k) + 0.5);
   n2=double(round/k);
   std::cout<<"\nthe rounded off number is : "<<n2<<"\n";
+  return 0;
 
 }
