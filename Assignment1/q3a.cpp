@@ -18,4 +18,5 @@ int main()
   capVowels5=a2[4];
   std::cout<<"\nvowels2-vowels1 = "<<vowels2-vowels1;
   std::cout<<"\ncapVowels2-capVowels1 = "<<capVowels2-capVowels1<<"\n";
+  return 0;
 }
