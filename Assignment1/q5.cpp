@@ -9,7 +9,7 @@ int main()
   std::cin>>k;
   round= (long int)((long double)(n1*k) + 0.5f);
   n2=(long double)round/k;
-  std::cout << std::fixed;
+  std::cout << std::fixed;//to print in fixed floating point notation
   std::cout<<"\nthe rounded off number is : "<<n2<<"\n";
   return 0;
 }
