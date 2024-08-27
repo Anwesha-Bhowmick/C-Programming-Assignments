@@ -1,3 +1,3 @@
 Static local variable should be used because it can only be accessed within the function it is defined in i.e., it cannot be accessed beyond the scope of the function. Drawback of using global variable is that the variable can be accessed from anywhere in the code, making it vulnerable to undesired manipulation.
 
-No, we cannot use local variable as once the function returns, the life of the variable ends. When the function is called again, a new instance of the variable is created. This is why the "static" keyword is used, due to which the varaible still exists after the function returns. 
+No, we cannot use local variable as once the function returns, the life of the variable ends. When the function is called again, a new instance of the variable is created. This is why the "static" keyword is used, due to which the varaible still exists even after the function returns. 
