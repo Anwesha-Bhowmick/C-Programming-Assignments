@@ -1,2 +1,1 @@
-assignment2
-write why local static int variable cannot be used in q3
+Explanations are provided as comments or in separate txt files.
