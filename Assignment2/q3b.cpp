@@ -12,7 +12,6 @@ void f1()
 int main()
 {
   int n,i;
-  
   cout<<"\nenter the number of times you want to call the function: ";
   cin>>n;
   for(i=0;i<n;i++)
