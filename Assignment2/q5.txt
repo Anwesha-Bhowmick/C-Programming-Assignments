@@ -1,0 +1,12 @@
+Ans5a)
+The output is :
+3 4 5 6 7 
+13 14 15 16 17 
+23 24 25 36 27 
+
+The function f1 takes two arguments, one is the base address of the array and the second parameter specifies the no of rows of the 2d array being passed. The outer loop accesses each row and the inner loop accesses each element of that row and this vakue is incremented by 2.
+
+Ans5b)
+
+Yes, it is valid to pass a 2d array to a function without passing the first dimension. It is because the array name is the base address of the 2d array. A 2d array is an array of arrays, so we can access the first sub-array using the array name but subsequent subarrays can only be accessed if we know the column size of the 2d array, thus the second parameter is necessary. 
+It is not necessary to pass the no of rows as the elements are stored in contiguous memory location, thus the 2d array is stored as a 1d array in memory and the compiler can split it into sub-arrays after n elements, where n=no of columns. This cannot be applied when only the row size is mentioned as the compiler would not know the number of elements in each row i.e. it won't know where to split the array.
