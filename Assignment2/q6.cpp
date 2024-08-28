@@ -53,4 +53,5 @@ int main()
     for (unsigned int i = 0; i < 4; i++)
         std::cout << str[i] << " ";
     std::cout << "\n";
+    return 0;
 }
