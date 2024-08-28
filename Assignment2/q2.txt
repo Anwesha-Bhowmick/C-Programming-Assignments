@@ -1,3 +1,5 @@
 "typedef int (&rifii) (int, int)"
 
 The typedef keyword is used to create alias "rifii" for the reference to a function that returns an integer and takes exactly two parameters, both being integers.
+
+This can be useful when we want to simplify complex declarations and using references makes the code more readable, unlike pointers, references always point to a valid location.
