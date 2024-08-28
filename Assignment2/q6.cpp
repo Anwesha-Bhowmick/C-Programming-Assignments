@@ -13,25 +13,25 @@ void sort1(int *a, int n)
 // function to compare two strings
 int stringCompare(char *str1, char *str2)
 {
-    int n = strlen(str1) < strlen(str2) ? strlen(str1) : strlen(str2);
+    int n = strlen(str1) < strlen(str2) ? strlen(str1) : strlen(str2);//taking the smaller string's size for char by char comparison
     for (unsigned int i = 0; i < n; i++)
     {
-        if (str1[i] > str2[i])
+        if (str1[i] > str2[i])//conmparing the strings, character by character
         {
-            return 1;
+            return 1;//swap
         }
         if (str1[i] < str2[i])
         {
-            return 0;
+            return 0;//no swap
         }
     }
-    if (strlen(str1) > strlen(str2))
+    if (strlen(str1) > strlen(str2))//this case is need when both strings have identical upto a certain point but one of the strings exceeds in size such as : "robust" and "robust code", both have "robust" substring in them 
     {
-        return 1;
+        return 1;//swapped
     }
     else
     {
-        return 0;
+        return 0;//no swap
     }
 }
 
@@ -40,7 +40,7 @@ void sort2(char *a[], int n)
 {
     for (unsigned int i = 0; i < n; i++)
         for (unsigned int j = i + 1; j < n; j++)
-            if (stringCompare(a[i], a[j]))
+            if (stringCompare(a[i], a[j]))//calling the user-defined function
                 std::swap(a[i], a[j]);
 }
 
@@ -57,7 +57,7 @@ int main()
     std::cout << "\n";
     void (*sortString)(char *[], int);
     sortString = &sort2;
-    sortString(str, 4);
+    sortString(str, 4);//call via function pointer
     for (unsigned int i = 0; i < 4; i++)
         std::cout << str[i] << " ";
     std::cout << "\n";
