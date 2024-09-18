@@ -3,6 +3,7 @@ q1.h contains the declarations
 q1.cpp contains the definitions and initialisations
 ==========
 q2:
+q2.cpp contains the explanation for the output 
 ==========
 q3:
 ==========
