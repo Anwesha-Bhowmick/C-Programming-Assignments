@@ -4,7 +4,7 @@
 using namespace std;
 int main()
 {
-    char monthName[12][MAX];//there are 12 months in a year,so nunber of rows is 12, and the max length of each month name is assumed to be of 50 characters, thus the column size
+    char monthName[12][MAX];//there are 12 months in a year,so number of rows is 12, and the max length of each month name is assumed to be of 50 characters, thus the column size
     int monthDays[12];//12 entries for 12 months
     for (int i = 0; i < 12; i++)
     {
