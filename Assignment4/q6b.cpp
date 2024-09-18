@@ -4,7 +4,6 @@ using namespace std;
 
 struct Month
 {
-    // const char *monthName;
     const char *monthName;
     int monthDays;
 };
@@ -24,7 +23,7 @@ int main()
         {"October", 31},
         {"November", 30},
         {"December", 31},
-    };
+    };//array of structures
 
     for (int i = 0; i < 12; i++)
     {
