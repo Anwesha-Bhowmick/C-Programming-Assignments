@@ -60,7 +60,7 @@ int main()
         In order to get the maximum number of characters that can be on the input buffer, so as to skip those number of characters, we use numeric_limits<streamsize>::max */
 
         /*This function is being used because from the second input onwards, the input for the name of the month is skipped, this happens because 31 followed by enter from the keyboard is basically '31\n', 31 goes into the variable but \n stays in the buffer and in the next iteration getline() receives it and stops the scan then again input for number of days is asked, essentially skipping the input for the name of the month*/
-        createMonth(&(name[i])[0], days);//sending address of the first character of ith string
+        createMonth(&name[i][0], days);//sending address of the first character of ith string
     }
    
     displayMonth();//calling the display function
