@@ -62,12 +62,7 @@ int main()
         /*This function is being used because from the second input onwards, the input for the name of the month is skipped, this happens because 31 followed by enter from the keyboard is basically '31\n', 31 goes into the variable but \n stays in the buffer and in the next iteration getline() receives it and stops the scan then again input for number of days is asked, essentially skipping the input for the name of the month*/
         createMonth(&(name[i])[0], days);
     }
-    // createMonth("jan", 31);
-    // createMonth("feb", 28);
-    // createMonth("march", 31);
-    // createMonth("april", 30);
-    // createMonth("may", 31);
-
+   
     displayMonth();
 
     return 0;
