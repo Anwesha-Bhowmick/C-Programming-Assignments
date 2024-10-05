@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 #include <stack>
 #include <string>
+
 using namespace std;
 
 class Expr
@@ -28,6 +29,7 @@ int precedence(char opr)
     return 0;
 }
 
+// to convert infix to postfix
 string infixToPostfix(const char *infix)
 {
     stack<char> st1;
@@ -36,17 +38,17 @@ string infixToPostfix(const char *infix)
     {
         char c = infix[i];
 
-        // If the scanned character is an operand, add it to output string.
-        if (isalnum(c))
+        // If the scanned character is a digit, add it to output string.
+        if (isdigit(c)) // checks whether c is a decimal digit
         {
             p += c;
         }
 
-        // If the scanned character is an '(', push it to the stack.
+        // If the scanned character is '(', push it into the stack
         else if (c == '(')
             st1.push('(');
 
-        // If the scanned character is an ')', pop and to output string from the stack until an '(' is encountered.
+        // If the scanned character is ')', pop and add to output string from the stack until '(' is encountered
         else if (c == ')')
         {
             while (st1.top() != '(')
@@ -78,7 +80,7 @@ string infixToPostfix(const char *infix)
     return p;
 }
 
-int performOperation(int operand1, int operand2, char operation)
+int Operation(int operand1, int operand2, char operation)
 {
     switch (operation)
     {
@@ -109,23 +111,23 @@ int Expr::eval()
 
         if (isdigit(c))
         {
-            // Convert char digit to int and push onto the stack
+            // convert char digit to int and push onto the stack
             st2.push(c - '0');
         }
         else
         {
-            // Pop the top two elements for the operation
+            // pop the top two elements for the operation
             int operand2 = st2.top();
             st2.pop();
             int operand1 = st2.top();
             st2.pop();
 
-            // Perform operation and push the result back onto the stack
-            int result = performOperation(operand1, operand2, c);
+            // operate and push the result back onto the stack
+            int result = Operation(operand1, operand2, c);
             st2.push(result);
         }
     }
-    // The final result should be the only item left in the stack
+    // the final result should be the only item left in the stack
     return st2.top();
 }
 
