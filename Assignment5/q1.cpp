@@ -97,7 +97,7 @@ int Operation(int operand1, int operand2, char operation)
     }
 }
 
-int Expr::eval()
+int Expr::eval() // basically postfix expression evaluation function
 {
     const char *infix = expr;
     string str = infixToPostfix(infix);
