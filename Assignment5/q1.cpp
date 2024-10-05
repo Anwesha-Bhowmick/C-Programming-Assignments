@@ -38,17 +38,17 @@ string infixToPostfix(const char *infix)
     {
         char c = infix[i];
 
-        // If the scanned character is a digit, add it to output string.
+        // if the scanned character is a digit, add it to output string.
         if (isdigit(c)) // checks whether c is a decimal digit
         {
             p += c;
         }
 
-        // If the scanned character is '(', push it into the stack
+        // if the scanned character is '(', push it into the stack
         else if (c == '(')
             st1.push('(');
 
-        // If the scanned character is ')', pop and add to output string from the stack until '(' is encountered
+        // if the scanned character is ')', pop and add to output string from the stack until '(' is encountered
         else if (c == ')')
         {
             while (st1.top() != '(')
@@ -59,7 +59,7 @@ string infixToPostfix(const char *infix)
             st1.pop();
         }
 
-        // If an operator is scanned
+        // if the scanned character is an operator
         else
         {
             while (!st1.empty() && precedence(c) <= precedence(st1.top()))
@@ -71,7 +71,7 @@ string infixToPostfix(const char *infix)
         }
     }
 
-    // Pop all the remaining elements from the stack
+    // pop all the remaining elements from the stack
     while (!st1.empty())
     {
         p += st1.top();
@@ -80,7 +80,8 @@ string infixToPostfix(const char *infix)
     return p;
 }
 
-int Operation(int operand1, int operand2, char operation)
+//to perform to respective mathematical operation
+int Operation(int operand1, int operand2, char operation) 
 {
     switch (operation)
     {
