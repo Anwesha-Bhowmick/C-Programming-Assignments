@@ -1,1 +1,1 @@
-explanations are given with the code.
+explanations are provided with the code.
