@@ -1,72 +1,98 @@
-#include<iostream>
-#include<cstring>
-#include<string>
-#include<fstream>
+#include <iostream>
+#include <cstring>
+#include <string>
+#include <fstream>
 using namespace std;
 
 /* A file descriptor type */
-class fileRA{
- 
-  public:
+class fileRA
+{
   fstream fd;
   int pos;
-  fileRA(string name)
+
+public:
+  fileRA(const char *name)
   {
-    fd.open(name, ios::in|ios::out);
+    fd.open(name, ios::in | ios::out);
   }
   fileRA &operator[](int i)
   {
-    fd.seekp(i);//set the put pointer to ith position
-    pos=i;
-    return *this;    
+    // fd.seekg(i); // set the put pointer to ith position
+    this->pos = i;
+    return *this;
   }
- 
+
   int get_size()
   {
-  string c;
+
+    char ch;
     int count;
-    while(getline(fd,c))
+
+    while (!fd.eof())
     {
-      count +=c.length();
+      fd.get(ch);
+      if (ch != '\n')
+      {
+        count++;
+        // cout << "count: " << count << endl;
+      }
     }
+
+    // cout << "count: " << count << endl;
+    fd.seekg(pos);
     return count;
   }
 
-  operator char() const
+  operator char()
   {
     fd.seekg(pos);
-    char c=fd.get();
+    char c = fd.get();
+    if (!fd)
+    {
+      cerr << "Error: Seek failed at position " << pos << endl;
+      exit(1);
+    }
     return c;
   }
-  
+
   fileRA &operator=(char c)
   {
     fd.seekp(pos);
-    fd.put(c);
+    // fd.put(c);
+    fd << c;
+    if (!fd)
+    {
+      cerr << "Error: Seek failed at position " << pos << endl;
+      exit(1);
+    }
     return *this;
   }
-  
+  // ostream &operator<<(ostream &os)
+  // {
+  //   // os << (char)fd.get() << endl;
+  //   // return os;
+
+  //   fd.seekg(pos); // Error: 'fd' is private within this context
+  //   char c = fd.get();
+  //   os << c;
+  //   return os;
+  // }
 };
-ostream& operator<<(ostream &os, const fileRA &f)
-  {
-    os<<f.(fd.peek())<<endl;
-    return os;
-  }
-  
-  
+// ostream &operator<<(ostream &os, const fileRA &f)
+// {
+//   os << f.(fd.peek()) << endl;
+//   return os;
+// }
+
 int main()
 {
   /* Opens the file in read and write mode */
   fileRA fobj("Test.txt");
-  //std::cout << fobj[2];
-  //fobj[4] = 'A'; // random writing to file
+  // std::cout << fobj.get_size();
+  fobj[4] = 'A'; // random writing to file
   /* print the contents of the file */
-  cout<<fobj.get_size();
-  for(unsigned int i=0;i<fobj.get_size();i++)
-    std::cout << fobj[i];
-  //char c = fobj[1]; // implicit conversion to char
-  //std::cout << "Char is = " << c << std::endl;
+  //  for (unsigned int i = 0; i < fobj.get_size(); i++)
+  //    std::cout << fobj[i];
+  char c = fobj[1]; // implicit conversion to char
+  std::cout << "Char is = " << c << std::endl;
 }
-
-//seekg
-//seekp
