@@ -72,7 +72,7 @@ public:
   //   // os << (char)fd.get() << endl;
   //   // return os;
 
-  //   fd.seekg(pos); // Error: 'fd' is private within this context
+  //   fd.seekg(pos);
   //   char c = fd.get();
   //   os << c;
   //   return os;
